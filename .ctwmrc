@@ -10,11 +10,11 @@
 # any windows and to use meta-keys.
 #
 
-TitleFont	"-adobe-helvetica-bold-r-normal--*-130-*-*-*-*-*-*"
-ResizeFont	"-adobe-helvetica-bold-r-normal--*-130-*-*-*-*-*-*"
-MenuFont	"-adobe-helvetica-bold-r-normal--*-130-*-*-*-*-*-*"
-IconFont	"-adobe-helvetica-bold-r-normal--*-130-*-*-*-*-*-*"
-IconManagerFont	"-adobe-helvetica-bold-r-normal--*-130-*-*-*"
+TitleFont	"-adobe-helvetica-bold-r-normal--*-280-*-*-*-*-*-*"
+ResizeFont	"-adobe-helvetica-bold-r-normal--*-280-*-*-*-*-*-*"
+MenuFont	"-adobe-helvetica-bold-r-normal--*-280-*-*-*-*-*-*"
+IconFont	"-adobe-helvetica-bold-r-normal--*-280-*-*-*-*-*-*"
+IconManagerFont	"-adobe-helvetica-bold-r-normal--*-280-*-*-*"
 #ShowWorkSpaceManager			# start with workspace manager up
 ShowIconManager
 IconifyByUnmapping
@@ -24,6 +24,8 @@ UseThreeDIconManagers
 UseThreeDBorders
 UseThreeDWMap
 SunkFocusWindowTitle
+RandomPlacement "off"
+
 
 
 Color
@@ -33,10 +35,10 @@ Color
     DefaultForeground     "gray85"
     BorderTileBackground  "Black"
     BorderTileForeground  "Black"
-    TitleBackground       "black"
-    TitleForeground       "gray85"
-    MenuBackground        "#686B9F"
-    MenuForeground        "white"
+    TitleBackground       "gray85"
+    TitleForeground       "black"
+    MenuBackground        "gray85"
+    MenuForeground        "black"
     MenuTitleBackground   "gray70"
     MenuTitleForeground   "White"
     IconBackground        "LightSlateBlue"
@@ -48,9 +50,11 @@ Color
   
 }
 
-IconManagerGeometry		"1904x32+0+0" 10
+IconManagerGeometry		"3827x42+0+0" 6
 IconManagerDontShow {
     "WorkSpaceManager"
+    "polybar"
+
 }
 
 NoTitle {                  # little programs that look like icons
@@ -69,7 +73,7 @@ Function "move-or-iconify" { f.move f.deltastop f.iconify }
 # Set some useful bindings.  Sort of uwm-ish, sort of simple-button-ish
 #
 Button1 =	: root		: f.menu "defops"
-Button2 =	: root		: f.menu "windowops"
+Button3 =	: root		: f.menu "windowops"
 
 Button1 = m	: window|icon	: f.function "move-or-lower"
 Button2 = m	: window|icon	: f.iconify
@@ -94,7 +98,7 @@ Button2 =	: frame		: f.raiselower
 menu "defops"
 {
     "Ctwm"		f.title
-    "Xterm"		!"xterm&"
+    "Xterm"		!"xfce4-terminal&"
     "Xapps"  		!"xfce4-appfinder&"
     "Restart"		f.restart
     "Exit"		f.quit
@@ -102,19 +106,9 @@ menu "defops"
 
 menu "windowops" {
     "Windows"		f.title
-    "Occupy"		f.occupy
-    "Occupy All"	f.occupyall
-    "Iconify"		f.iconify
-    "Refresh"		f.refresh
-    "Vanish"		f.vanish
     "Ingrandisci"           f.fullzoom
-    "Info"		f.identify
-    ""			f.separator
-    "Resize"		f.resize
-    "Move"		f.move
-    "Animate"		f.startanimation
-    "Don't animate"	f.stopanimation
-    ""			f.separator
-    "Send Delete"	f.delete
-    "Kill Window"	f.destroy
+    "Ridimensiona"		f.resize
+    "Muovi"		f.move
+    "Chiudi finestra"	f.delete
+    "Kill"	        f.destroy
 }
